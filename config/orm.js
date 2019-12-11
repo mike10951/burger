@@ -8,7 +8,14 @@ var orm = {
             cb(result);
         });
     },
-    insertOne: function () {
+    insertOne: function (table, cols, vals, cb) {
+        var queryString = `INSERT INTO ${table}(${cols.toString()}) VALUES ("${vals.toString()}")`
+        console.log(queryString);
+
+        connection.query(queryString, function (err, result) {
+            if (err) throw err;
+            cb(result);
+        });
 
     },
     updateOne: function () {

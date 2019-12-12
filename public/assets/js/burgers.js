@@ -25,6 +25,18 @@ $(function () {
 
         var id = $(this).data("id");
         var isDevoured = $(this).data("devoured");
+        var newState = !isDevoured;
+        var changedState = { "devoured": newState };
+
+        $.ajax("/api/burgers/" + id, {
+            type: "PUT",
+            data: changedState
+        }).then(
+            function () {
+                console.log("changed state to", newState);
+                location.reload();
+            }
+        )
 
     });
 

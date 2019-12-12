@@ -1,10 +1,23 @@
 <h1>Burgers</h1>
 
+<h2>Burgers you must eat!</h2>
 <ul>
     {{#each burgers}}
+    {{#unless devoured}}
     {{>burgers/burger-block}}
+    {{/unless}}
     {{/each}}
 </ul>
+
+<h2>Devoured!</h2>
+<ul>
+    {{#each burgers}}
+    {{#if devoured}}
+    {{>burgers/burger-block}}
+    {{/if}}
+    {{/each}}
+</ul>
+
 
 <h2>Add a burger</h2>
 <form class="create-form"">

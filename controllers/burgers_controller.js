@@ -20,4 +20,10 @@ router.post("/api/burgers", function (req, res) {
     })
 });
 
+router.put("/api/burgers/:id", function (req, res) {
+    burger.updateOne(req.body.devoured, `id = ${req.params.id}`, function (result) {
+        res.json({ id: result.insertId })
+    })
+});
+
 module.exports = router;

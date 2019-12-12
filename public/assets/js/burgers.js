@@ -20,4 +20,12 @@ $(function () {
         );
     });
 
+
+    $(".devour-burger").on("click", function (event) {
+
+        var id = $(this).data("id");
+        var isDevoured = $(this).data("devoured");
+
+    });
+
 });
